@@ -1,12 +1,16 @@
-# keras-yolo3
+# tiny-yolo3 mask detection
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-## Introduction
+## Introducción
 
 A Keras implementation of YOLOv3 (Tensorflow backend) inspired by [allanzelener/YAD2K](https://github.com/allanzelener/YAD2K).
 
+Implementación original tomada de https://github.com/qqwweee/keras-yolo3. 
 
+Juan Pablo Carranza Hurtado
+
+José Alberto Ligorría Taracena
 ---
 
 ## Quick Start
@@ -24,7 +28,7 @@ python yolo_video.py [video_path] [output_path (optional)]
 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
 
-### Usage
+### Uso
 Use --help to see usage of yolo_video.py:
 ```
 usage: yolo_video.py [-h] [--model MODEL] [--anchors ANCHORS]
@@ -46,6 +50,12 @@ optional arguments:
   --image            Image detection mode, will ignore all positional arguments
 ```
 ---
+
+Para la implementación específica de este proyecto, se puede utilizar python yolo_video.py --input para inicializar la grabación con la cámara, o se puede especificar la ruta de un video. 
+
+Para utilizar el modo de detección de imágenes se puede utilizar python yolo_video.py --image
+
+
 
 4. MultiGPU usage: use `--gpu_num N` to use N GPUs. It is passed to the [Keras multi_gpu_model()](https://keras.io/utils/#multi_gpu_model).
 
@@ -77,14 +87,15 @@ If you want to use original pretrained weights for YOLOv3:
     3. `python convert.py -w darknet53.cfg darknet53.weights model_data/darknet53_weights.h5`  
     4. use model_data/darknet53_weights.h5 in train.py
 
+Para esta implementación se utilizó este dataset para entrenar el modelo:
+
+https://www.kaggle.com/dohunkim/visualizing-medical-mask-dataset
+
 ---
 
 ## Some issues to know
 
-1. The test environment is
-    - Python 3.5.2
-    - Keras 2.1.5
-    - tensorflow 1.6.0
+1. Se tiene el listado de paquetes utilizados en environment.yml
 
 2. Default anchors are used. If you use your own anchors, probably some changes are needed.
 
@@ -92,8 +103,3 @@ If you want to use original pretrained weights for YOLOv3:
 
 4. The speed is slower than Darknet. Replacing PIL with opencv may help a little.
 
-5. Always load pretrained weights and freeze layers in the first stage of training. Or try Darknet training. It's OK if there is a mismatch warning.
-
-6. The training strategy is for reference only. Adjust it according to your dataset and your goal. And add further strategy if needed.
-
-7. For speeding up the training process with frozen layers train_bottleneck.py can be used. It will compute the bottleneck features of the frozen model first and then only trains the last layers. This makes training on CPU possible in a reasonable time. See [this](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) for more information on bottleneck features.
