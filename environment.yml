@@ -104,4 +104,6 @@ dependencies:
     - tqdm==4.41.1
     - werkzeug==0.16.0
     - wrapt==1.11.2
+    - markdown2==2.3.9
+    - mdutils==1.2.2
 prefix: C:\Users\jpcar\Anaconda3\envs\yolo2
