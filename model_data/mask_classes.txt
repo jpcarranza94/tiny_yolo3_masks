@@ -1,0 +1,5 @@
+no mask
+correct mask
+incorrect mask
+other
+face shield
