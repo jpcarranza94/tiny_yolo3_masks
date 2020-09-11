@@ -103,3 +103,9 @@ https://www.kaggle.com/dohunkim/visualizing-medical-mask-dataset
 
 4. The speed is slower than Darknet. Replacing PIL with opencv may help a little.
 
+
+
+## Link de videos de prueba
+
+Video sin anotaciones https://drive.google.com/file/d/1jgQQgBMPAYP9hKOfsac-D4rTndDGI7hC/view?usp=sharing
+Video con anotaciones https://drive.google.com/file/d/1TbP6xKoFCe_ZSDcQiVAGfxl_lh5Siqe7/view?usp=sharing
